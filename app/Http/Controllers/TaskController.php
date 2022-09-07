@@ -71,7 +71,10 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        //完了したタスク表示
+        $tasks = Task::where('status', true)->get();
+
+        return view('tasks.show', compact('tasks'));
     }
 
     /**

@@ -19,62 +19,73 @@
     </header>
 
     <main>
-        <div class="mx-auto">
+        <div class="mx-48">
             <div class="my-20">
                 <p class="text-center text-2xl font-bold">今日は何をする？？</p> 
             </div>
-            <form action="/tasks" method="post" class="">
-                @csrf
-                <input type="text" name="task_name" placeholder="掃除をする" class="border border-slate-400 w-full">
-                @error('task_name')
-                    <div>
-                        <p class="text-red-600">{{ $message }}</p>
+            <div class="mx-48">
+                <form action="/tasks" method="post" class="">
+                    @csrf
+                    <input type="text" name="task_name" placeholder="掃除をする" class="border border-slate-400 w-full h-14 rounded-md">
+                    @error('task_name')
+                        <div>
+                            <p class="text-red-600">{{ $message }}</p>
+                        </div>
+                    @enderror
+                    <div class="flex p-7 justify-between">
+                        <div>
+                        </div>
+                        <div>
+                            <button type="submit" class="bg-red-300 hover:bg-red-200 rounded-md w-80 h-10">追加する</button>
+                        </div>
+                        <div>
+                        </div>
                     </div>
-                @enderror
-                <button type="submit" class="bg-red-300 hover:bg-red-200">追加する</button>
-            </form>
+                </form>
+            </div>
         
             @if ($tasks->isNotEmpty())
-                <div>タスク一覧</div>
-                <table>
-                    <thead>
-                        <tr>タスク</tr>
-                        <tr>アクション</tr>
-                        <tbody>
-                            @foreach ($tasks as $task)
-                                <tr>
-                                    <td>
-                                        <div>
-                                            {{ $task->name }}
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="flex">
-                                            <div>
-                                                <form action="/tasks/{{ $task->id }}" method="post">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <input type="hidden" name="status" value="{{ $task->status }}">
-                                                    <button type="submit" class="bg-cyan-200 hover:bg-cyan-400">完了</button>
-                                                </form>
-                                            </div>
-                                            <div>
-                                                <a href="/tasks/{{ $task->id }}/edit/" class="bg-amber-200 hover:bg-amber-400">編集</a>
-                                            </div>
-                                            <div>
-                                                <form action="/tasks/{{ $task->id }}" method="post" onsubmit="return deleteTask();">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="bg-cyan-200 hover:bg-cyan-400">削除</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
+            <div class="mt-10 rounded-md">
+                <table class="w-full">
+                    <thead class="">
+                        <tr class="w-full text-left bg-slate-100 pt-2">
+                            <th class="">タスク</th>
+                            <th class=""></th>
+                        </tr>
                     </thead>
-                </table>
+                    <tbody class="bg-white">
+                        @foreach ($tasks as $task)
+                            <tr>
+                                <td class="">
+                                    {{ $task->name }}
+                                </td>
+                                <td class="w-52 h-20">
+                                    <div class="flex justify-end h-full text-center">
+                                        <div class="w-full h-full bg-cyan-200 hover:bg-cyan-400 ">
+                                            <form action="/tasks/{{ $task->id }}" method="post">
+                                                @csrf
+                                                @method('PUT')
+                                                <input type="hidden" name="status" value="{{ $task->status }}">
+                                                <button type="submit" class="">完了</button>
+                                            </form>
+                                        </div>
+                                        <div class="w-full h-full">
+                                            <a href="/tasks/{{ $task->id }}/edit/" class="">編集</a>
+                                        </div>
+                                        <div class="w-full h-full">
+                                            <form action="/tasks/{{ $task->id }}" method="post" onsubmit="return deleteTask();">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="">削除</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+            </table>
+            </div>
             @endif
         </div>
     </main>
