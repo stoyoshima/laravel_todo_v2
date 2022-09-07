@@ -33,7 +33,7 @@
                 @enderror
                 <div class="flex p-7 justify-between">
                     <div>
-                        <a href="/tasks" class="">戻る</a>
+                        <a href="/tasks" class="underline underline-offset-2 hover:text-sky-400">戻る</a>
                     </div>
                     <div>
                         <button type="submit" class="bg-yellow-200 hover:bg-yellow-400 rounded-md w-80 h-10">更新する</button>

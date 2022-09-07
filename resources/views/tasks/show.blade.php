@@ -44,6 +44,9 @@
                 </table>
             </div>
             @endif
+            <div class="text-start pt-10">
+                <a href="/tasks" class="underline underline-offset-2 hover:text-sky-400">戻る</a>
+            </div>
         </div>
     </main>
 </body>

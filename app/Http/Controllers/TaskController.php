@@ -69,7 +69,7 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //完了したタスク表示
         $tasks = Task::where('status', true)->get();

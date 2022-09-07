@@ -38,7 +38,7 @@
                         <div>
                             <button type="submit" class="bg-red-300 hover:bg-red-200 rounded-md w-80 h-10">追加する</button>
                         </div>
-                        <div>
+                        <div class="">
                         </div>
                     </div>
                 </form>
@@ -46,37 +46,39 @@
         
             @if ($tasks->isNotEmpty())
             <div class="mt-10 rounded-md">
-                <table class="w-full">
+                <table class="w-full divide-y divide-gray-300">
                     <thead class="">
                         <tr class="w-full text-left bg-slate-100 pt-2">
                             <th class="">タスク</th>
                             <th class=""></th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white">
+                    <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($tasks as $task)
-                            <tr>
-                                <td class="">
+                            <tr class="">
+                                <td >
                                     {{ $task->name }}
                                 </td>
                                 <td class="w-52 h-20">
-                                    <div class="flex justify-end h-full text-center">
-                                        <div class="w-full h-full bg-cyan-200 hover:bg-cyan-400 ">
-                                            <form action="/tasks/{{ $task->id }}" method="post">
+                                    <div class="flex justify-end h-full ">
+                                        <div class="w-full h-full flex justify-center items-center">
+                                            <form action="/tasks/{{ $task->id }}" method="post" class="">
                                                 @csrf
                                                 @method('PUT')
                                                 <input type="hidden" name="status" value="{{ $task->status }}">
-                                                <button type="submit" class="">完了</button>
+                                                <div class="w-full h-full ">
+                                                    <button type="submit" class="underline underline-offset-2 hover:text-cyan-500">完了</button>
+                                                </div>
                                             </form>
                                         </div>
-                                        <div class="w-full h-full">
-                                            <a href="/tasks/{{ $task->id }}/edit/" class="">編集</a>
+                                        <div class="w-full h-full flex justify-center items-center">
+                                            <a href="/tasks/{{ $task->id }}/edit/" class="underline underline-offset-2 hover:text-green-500">編集</a>
                                         </div>
-                                        <div class="w-full h-full">
+                                        <div class="w-full h-full flex justify-center items-center">
                                             <form action="/tasks/{{ $task->id }}" method="post" onsubmit="return deleteTask();">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="">削除</button>
+                                                <button type="submit" class="underline underline-offset-2 hover:text-red-500">削除</button>
                                             </form>
                                         </div>
                                     </div>
@@ -84,7 +86,10 @@
                             </tr>
                         @endforeach
                     </tbody>
-            </table>
+                </table>
+                <div class="text-end">
+                    <a href="{{ url('/tasks',$tasks) }}" class=" ">完了タスク一覧</a>
+                </div>
             </div>
             @endif
         </div>
