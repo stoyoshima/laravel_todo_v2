@@ -46,6 +46,9 @@
         
             @if ($tasks->isNotEmpty())
             <div class="mt-10 rounded-md">
+                <div class="text-end m-5">
+                    <a href="{{ url('/tasks',$tasks) }}" class="py-1 px-3 rounded-md border border-red-300 bg-red-300 hover:bg-white">完了タスク一覧</a>
+                </div>
                 <table class="w-full divide-y divide-gray-300">
                     <thead class="">
                         <tr class="w-full text-left bg-slate-100 pt-2">
@@ -87,9 +90,6 @@
                         @endforeach
                     </tbody>
                 </table>
-                <div class="text-end">
-                    <a href="{{ url('/tasks',$tasks) }}" class=" ">完了タスク一覧</a>
-                </div>
             </div>
             @endif
         </div>

@@ -25,17 +25,17 @@
             </div>        
             @if ($tasks->isNotEmpty())
             <div class="mt-10 rounded-md">
-                <table class="w-full">
+                <table class="w-full divide-y divide-gray-300">
                     <thead class="">
                         <tr class="w-full text-left bg-slate-100 pt-2">
                             <th class="">タスク</th>
                             <th class=""></th>
                         </tr>
                     </thead>
-                    <tbody class="bg-white">
+                    <tbody class="bg-white divide-y divide-gray-200">
                         @foreach ($tasks as $task)
                             <tr>
-                                <td class="">
+                                <td class="w-52 h-20">
                                     {{ $task->name }}
                                 </td>
                             </tr>
