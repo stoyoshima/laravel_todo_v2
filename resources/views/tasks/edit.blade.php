@@ -17,7 +17,7 @@
             </div>
         </div>
     </header>
-    <div class="mx-48">
+    <div class="mx-48 sm:contents">
         <div class="my-20">
             <p class="text-center text-2xl font-bold">タスク編集画面</p> 
         </div>
