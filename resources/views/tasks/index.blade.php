@@ -19,7 +19,7 @@
     </header>
 
     <main>
-        <div class="mx-48">
+        <div class="mx-48 sm:contents">
             <div class="my-20">
                 <p class="text-center text-2xl font-bold">今日は何をする？？</p> 
             </div>
