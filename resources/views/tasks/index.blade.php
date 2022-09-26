@@ -38,7 +38,7 @@
                         <div>
                             <button type="submit" class="bg-red-300 hover:bg-red-200 rounded-md w-80 h-10">追加する</button>
                         </div>
-                        <div class="">
+                        <div>
                         </div>
                     </div>
                 </form>
